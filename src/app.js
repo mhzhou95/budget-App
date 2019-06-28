@@ -6,22 +6,15 @@ import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
+import getExpensesTotal from './selectors/expenses-total';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
-
-
-
-// setTimeout(()=> {
-//   store.dispatch(setTextFilter(''));
-// }, 3000)
-
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-
 
 const jsx = (
   <Provider store ={store}>
